@@ -336,8 +336,8 @@ import tw.nekomimi.nekogram.NekoConfig;
 import tw.nekomimi.nekogram.helpers.MessageHelper;
 import tw.nekomimi.nekogram.helpers.QrHelper;
 import tw.nekomimi.nekogram.helpers.EmojiHelper;
-import tw.nekomimi.nekogram.helpers.WebAppHelper;
 import tw.nekomimi.nekogram.streaming.MediaStreamingProvider;
+import tw.nekomimi.nekogram.tlv.TlViewer;
 import tw.nekomimi.nekogram.translator.Translator;
 import tw.nekomimi.nekogram.translator.TranslatorSettingsPopupWrapper;
 
@@ -34770,7 +34770,7 @@ public class ChatActivity extends BaseFragment implements
                 return processRepeatMessage(true);
             }
             case OPTION_DETAILS: {
-                WebAppHelper.openTLViewer(this, selectedObject.messageOwner);
+                TlViewer.openTlViewer(this, selectedObject.messageOwner);
                 return true;
             }
         }

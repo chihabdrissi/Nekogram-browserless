@@ -52,7 +52,7 @@ import org.telegram.ui.community.CommunityUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import tw.nekomimi.nekogram.helpers.WebAppHelper;
+import tw.nekomimi.nekogram.tlv.TlViewer;
 
 public class TLRPC {
 
@@ -7144,6 +7144,10 @@ public class TLRPC {
         }
 
         public void serializeToStream(OutputSerializedData stream) {
+            if (stream instanceof TlViewer.CleanSerializedData) {
+                stream.writeInt32(TL_messageMediaUnsupported.constructor);
+                return;
+            }
             stream.writeInt32(constructor);
             stream.writeByteArray(bytes);
         }
@@ -58391,7 +58395,7 @@ public class TLRPC {
         }
 
         protected void writeAttachPath(OutputSerializedData stream) {
-            if (stream instanceof WebAppHelper.CleanSerializedData) return;
+            if (stream instanceof TlViewer.CleanSerializedData) return;
             if (ApplicationLoader.isAndroidTestEnvironment()) {
                 return;
             }
