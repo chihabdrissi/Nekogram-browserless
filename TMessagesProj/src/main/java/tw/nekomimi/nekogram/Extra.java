@@ -1,11 +1,9 @@
 package tw.nekomimi.nekogram;
 
-import org.lsposed.lsparanoid.Obfuscate;
 import org.telegram.messenger.BuildConfig;
 
 import tw.nekomimi.nekogram.helpers.UserHelper;
 
-@Obfuscate
 public class Extra {
 
     public static int APP_ID = BuildConfig.API_ID;
