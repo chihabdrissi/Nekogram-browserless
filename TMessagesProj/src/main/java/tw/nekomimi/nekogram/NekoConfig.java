@@ -145,6 +145,7 @@ public class NekoConfig {
     public static boolean hideBottomNavigationBar = false;
     public static boolean bottomFilterTabs = false;
     public static boolean strokeOnViews = true;
+    public static boolean gooeyAvatarAnimation = true;
 
     public static boolean shouldNOTTrustMe = false;
 
@@ -249,6 +250,7 @@ public class NekoConfig {
             bottomFilterTabs = preferences.getBoolean("bottomFilterTabs", false);
             strokeOnViews = preferences.getBoolean("strokeOnViews", true);
             cameraInVideoMessages = preferences.getInt("cameraInVideoMessages", CAMERA_FRONT);
+            gooeyAvatarAnimation = preferences.getBoolean("gooeyAvatarAnimation", true);
 
             LensHelper.checkLensSupportAsync();
             preferences.registerOnSharedPreferenceChangeListener(listener);
@@ -412,6 +414,14 @@ public class NekoConfig {
         SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("bottomFilterTabs", bottomFilterTabs);
+        editor.apply();
+    }
+
+    public static void toggleGooeyAvatarAnimation() {
+        gooeyAvatarAnimation = !gooeyAvatarAnimation;
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("nekoconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("gooeyAvatarAnimation", gooeyAvatarAnimation);
         editor.apply();
     }
 
