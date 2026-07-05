@@ -1768,7 +1768,7 @@ public class StoryViewer implements NotificationCenter.NotificationCenterDelegat
             ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) containerView.getLayoutParams();
             layoutParams.topMargin = ATTACHED_FRAGMENT_IS_EDGE_TO_EDGE ? 0 : insets.getSystemWindowInsetTop();
             layoutParams.bottomMargin = ATTACHED_FRAGMENT_IS_EDGE_TO_EDGE ?
-                insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom :
+                insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom :
                 insets.getSystemWindowInsetBottom();
 
             layoutParams.leftMargin = insets.getSystemWindowInsetLeft();

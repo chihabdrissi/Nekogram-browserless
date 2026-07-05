@@ -1428,7 +1428,7 @@ public abstract class BaseFragment {
     }
 
     public WindowInsetsCompat onInsetsInternal(@NonNull View view, @NonNull WindowInsetsCompat windowInsets) {
-        final Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars() | WindowInsetsCompat.Type.statusBars());
+        final Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
         onInsets(insets.left, insets.top, insets.right, bottomInset = insets.bottom);
         return WindowInsetsCompat.CONSUMED;
     }

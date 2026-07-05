@@ -8549,7 +8549,7 @@ public class ChatActivity extends BaseFragment implements
             if (bottomGiftHintView == null && firstTime && (bottomSuggestHintView == null || !bottomSuggestHintView.shown()) && HintsController.Hint.ChannelGiftHint.show()) {
                 AndroidUtilities.runOnUIThread(() -> {
                     if (getContext() == null) return;
-                    final float offset = windowInsetsStateHolder.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom / AndroidUtilities.density;
+                    final float offset = windowInsetsStateHolder.getInsets(WindowInsetsCompat.Type.systemBars()).bottom / AndroidUtilities.density;
                     final float translate = (contentView.getWidth() - (v.getX() + v.getWidth()) + v.getWidth() / 2f) / AndroidUtilities.density;
 
                     bottomGiftHintView = new HintView2(getContext(), HintView2.DIRECTION_BOTTOM);
@@ -8568,7 +8568,7 @@ public class ChatActivity extends BaseFragment implements
             if (bottomSuggestHintView == null && firstTime && HintsController.Hint.ChannelSuggestHint.show()) {
                 AndroidUtilities.runOnUIThread(() -> {
                     if (getContext() == null) return;
-                    final float offset = windowInsetsStateHolder.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom / AndroidUtilities.density;
+                    final float offset = windowInsetsStateHolder.getInsets(WindowInsetsCompat.Type.systemBars()).bottom / AndroidUtilities.density;
                     final float translate = (contentView.getWidth() - (v.getX() + v.getWidth()) + v.getWidth() / 2f) / AndroidUtilities.density;
 
                     bottomSuggestHintView = new HintView2(getContext(), HintView2.DIRECTION_BOTTOM);
