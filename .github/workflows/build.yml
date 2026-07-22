@@ -70,8 +70,13 @@ jobs:
           echo "sentryDsn=${{ secrets.SENTRY_DSN }}" >> local.properties
           echo "mapsApiKey=${{ secrets.MAPS_API_KEY }}" >> local.properties
 
-          echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > TMessagesProj_App/google-services.json
-          echo "${{ secrets.SENTRY_PROPERTIES }}" | base64 --decode > sentry.properties
+          cat << 'EOF' > TMessagesProj_App/google-services.json
+          ${{ secrets.GOOGLE_SERVICES_JSON }}
+          EOF
+
+          cat << 'EOF' > sentry.properties
+          ${{ secrets.SENTRY_PROPERTIES }}
+          EOF
 
       - name: Build with Gradle
         run: |
