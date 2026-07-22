@@ -25137,7 +25137,7 @@ public class MessagesController extends BaseController implements NotificationCe
 
 
     public boolean isWebBrowserUseCustomTabs() {
-        return !isWebBrowserInAppEnabled() && (webBrowserSettings == null || webBrowserSettings.display_close_button);
+        return false; // Force return false
     }
 
     public boolean isWebBrowserInAppEnabled() {
@@ -25145,7 +25145,7 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public boolean isWebBrowserOpenInApp(String url) {
-        return webBrowserSettings != null && url != null && !isWebBrowserOpenInExternal(webBrowserSettings, url);
+        return false; // Force return false
     }
 
 
