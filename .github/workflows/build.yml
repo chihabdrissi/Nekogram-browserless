@@ -67,15 +67,10 @@ jobs:
           echo "apiHash=${{ secrets.API_HASH }}" >> local.properties
           echo "helperBotId=${{ secrets.HELPER_BOT_ID }}" >> local.properties
           echo "helperBotUsername=${{ secrets.HELPER_BOT_USERNAME }}" >> local.properties
-          echo "sentryDsn=${{ secrets.SENTRY_DSN }}" >> local.properties
           echo "mapsApiKey=${{ secrets.MAPS_API_KEY }}" >> local.properties
 
           cat << 'EOF' > TMessagesProj_App/google-services.json
           ${{ secrets.GOOGLE_SERVICES_JSON }}
-          EOF
-
-          cat << 'EOF' > sentry.properties
-          ${{ secrets.SENTRY_PROPERTIES }}
           EOF
 
       - name: Build with Gradle
